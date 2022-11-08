@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\GameReversals">
+      <UniqueIdentifier>{b3be58d8-2535-47fc-98e0-e39fb0c27cab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Utils">
+      <UniqueIdentifier>{01dd1acc-04dc-4499-917d-99e233a1dbf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\GameReversals">
+      <UniqueIdentifier>{33e371c6-f55f-4361-a00b-478d9474c3c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Utils">
+      <UniqueIdentifier>{4d502e68-d5c6-415c-a592-fd7adfc71943}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\DataRecorders">
+      <UniqueIdentifier>{4f8bb48b-d5d7-40ab-a199-4dbd945aaade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\DataRecorders">
+      <UniqueIdentifier>{72a4417e-85ca-4c26-aeff-871f4ccc9c86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Libs">
+      <UniqueIdentifier>{7f3e4009-3b67-4535-87f6-3659ad63ec87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Libs">
+      <UniqueIdentifier>{cb1aa474-8c6f-49e6-a325-1d7bdca2bb01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Libs\PolyM">
+      <UniqueIdentifier>{2839ef39-31e6-4664-9b30-ad593b4fc18b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Libs\PolyM">
+      <UniqueIdentifier>{2151051b-1b22-4e52-8319-30bf65016999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Libs\OpenCV">
+      <UniqueIdentifier>{b73b31fa-df9b-42c8-86ea-2b9ed8c0035b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Libs\OpenCV">
+      <UniqueIdentifier>{5a81a91d-605e-4d40-95e7-0cdc2a75b091}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_reversals\appdata\il2cpp-api-functions.h">
+      <Filter>头文件\GameReversals</Filter>
+    </ClInclude>
+    <ClInclude Include="game_reversals\appdata\il2cpp-api-functions-ptr.h">
+      <Filter>头文件\GameReversals</Filter>
+    </ClInclude>
+    <ClInclude Include="game_reversals\appdata\il2cpp-functions.h">
+      <Filter>头文件\GameReversals</Filter>
+    </ClInclude>
+    <ClInclude Include="game_reversals\appdata\il2cpp-metadata-version.h">
+      <Filter>头文件\GameReversals</Filter>
+    </ClInclude>
+    <ClInclude Include="game_reversals\appdata\il2cpp-types.h">
+      <Filter>头文件\GameReversals</Filter>
+    </ClInclude>
+    <ClInclude Include="game_reversals\appdata\il2cpp-types-ptr.h">
+      <Filter>头文件\GameReversals</Filter>
+    </ClInclude>
+    <ClInclude Include="game_reversals\appdata\il2cpp-unityplayer-functions.h">
+      <Filter>头文件\GameReversals</Filter>
+    </ClInclude>
+    <ClInclude Include="game_reversals\framework\helpers.h">
+      <Filter>头文件\GameReversals</Filter>
+    </ClInclude>
+    <ClInclude Include="game_reversals\framework\il2cpp-appdata.h">
+      <Filter>头文件\GameReversals</Filter>
+    </ClInclude>
+    <ClInclude Include="game_reversals\framework\il2cpp-init.h">
+      <Filter>头文件\GameReversals</Filter>
+    </ClInclude>
+    <ClInclude Include="data_recorders\GamePlayerDataRecorder.h">
+      <Filter>头文件\DataRecorders</Filter>
+    </ClInclude>
+    <ClInclude Include="data_recorders\GameWorldVarsRecorder.h">
+      <Filter>头文件\DataRecorders</Filter>
+    </ClInclude>
+    <ClInclude Include="data_recorders\IORecorder.h">
+      <Filter>头文件\DataRecorders</Filter>
+    </ClInclude>
+    <ClInclude Include="data_recorders\RecorderBase.h">
+      <Filter>头文件\DataRecorders</Filter>
+    </ClInclude>
+    <ClInclude Include="data_recorders\RecorderMain.h">
+      <Filter>头文件\DataRecorders</Filter>
+    </ClInclude>
+    <ClInclude Include="data_recorders\Screenshot.h">
+      <Filter>头文件\DataRecorders</Filter>
+    </ClInclude>
+    <ClInclude Include="data_recorders\VideoRecorder.h">
+      <Filter>头文件\DataRecorders</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\PolyM\Msg.hpp">
+      <Filter>头文件\Libs\PolyM</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\PolyM\Queue.hpp">
+      <Filter>头文件\Libs\PolyM</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\opencv2\core.hpp">
+      <Filter>头文件\Libs\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\opencv2\imgcodecs.hpp">
+      <Filter>头文件\Libs\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\opencv2\imgproc.hpp">
+      <Filter>头文件\Libs\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\opencv2\opencv.hpp">
+      <Filter>头文件\Libs\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\opencv2\opencv_modules.hpp">
+      <Filter>头文件\Libs\OpenCV</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game_reversals\framework\helpers.cpp">
+      <Filter>源文件\GameReversals</Filter>
+    </ClCompile>
+    <ClCompile Include="game_reversals\framework\il2cpp-init.cpp">
+      <Filter>源文件\GameReversals</Filter>
+    </ClCompile>
+    <ClCompile Include="data_recorders\GamePlayerDataRecorder.cpp">
+      <Filter>源文件\DataRecorders</Filter>
+    </ClCompile>
+    <ClCompile Include="data_recorders\GameWorldVarsRecorder.cpp">
+      <Filter>源文件\DataRecorders</Filter>
+    </ClCompile>
+    <ClCompile Include="data_recorders\IORecorder.cpp">
+      <Filter>源文件\DataRecorders</Filter>
+    </ClCompile>
+    <ClCompile Include="data_recorders\RecorderBase.cpp">
+      <Filter>源文件\DataRecorders</Filter>
+    </ClCompile>
+    <ClCompile Include="data_recorders\RecorderMain.cpp">
+      <Filter>源文件\DataRecorders</Filter>
+    </ClCompile>
+    <ClCompile Include="data_recorders\Screenshot.cpp">
+      <Filter>源文件\DataRecorders</Filter>
+    </ClCompile>
+    <ClCompile Include="data_recorders\VideoRecorder.cpp">
+      <Filter>源文件\DataRecorders</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\PolyM\Msg.cpp">
+      <Filter>源文件\Libs\PolyM</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\PolyM\Queue.cpp">
+      <Filter>源文件\Libs\PolyM</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
