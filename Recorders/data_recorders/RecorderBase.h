@@ -4,11 +4,12 @@
 #include <chrono>
 #include <string>
 #include <nlohmann/json.hpp>
-#include <helpers.h>
 #include <windows.h>
 #include <conio.h>
 #include <PolyM/Msg.hpp>
 #include <PolyM/Queue.hpp>
+#include "ProcessHelper.h"
+#include "game-functions.h"
 
 class RecorderBase
 {

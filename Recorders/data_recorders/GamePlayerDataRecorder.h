@@ -1,5 +1,6 @@
 #pragma once
 #include "RecorderBase.h"
+
 class GamePlayerDataRecorder :
     public RecorderBase
 {

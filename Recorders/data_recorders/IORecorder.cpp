@@ -1,4 +1,3 @@
-#include "pch-il2cpp.h"
 #include "IORecorder.h"
 
 #define KEY_DOWN(VK_NONAME) ((GetAsyncKeyState(VK_NONAME) & 0x8000) ? 1:0) 
@@ -264,8 +263,8 @@ static std::unordered_map<int, std::string> VKEY_TO_STRING_MAP =
 nlohmann::json IORecorder::Record(nlohmann::json record)
 {
     auto mouse = record["mouse"];
-	auto mouseX = app::Input_GetAxis(string_to_il2cppi("Mouse X"), nullptr);
-	auto mouseY = app::Input_GetAxis(string_to_il2cppi("Mouse Y"), nullptr);
+	auto mouseX = GameFunctions::GetInstance().Input_GetAxis(GameFunctions::GetInstance().string_to_il2cppi("Mouse X"), nullptr);
+	auto mouseY = GameFunctions::GetInstance().Input_GetAxis(GameFunctions::GetInstance().string_to_il2cppi("Mouse Y"), nullptr);
 
     POINT windows_mouse;
 
@@ -278,7 +277,7 @@ nlohmann::json IORecorder::Record(nlohmann::json record)
 	mouse["y"] = windows_mouse.y;
 	mouse["game_x"] = this->m_psuedo_mouse.x;
 	mouse["game_y"] = this->m_psuedo_mouse.y;
-	mouse["is_cursor_visible"] = app::Cursor_get_visible(nullptr);
+	mouse["is_cursor_visible"] = GameFunctions::GetInstance().Cursor_get_visible(nullptr);
 	mouse["buttons"] = {};
     for (int vKey : MOUSE_VKEYS)
     {

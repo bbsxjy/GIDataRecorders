@@ -4,6 +4,7 @@
 #include "GameWorldVarsRecorder.h"
 #include "IORecorder.h"
 #include "VideoRecorder.h"
+
 class RecorderMain :
     public RecorderBase
 {

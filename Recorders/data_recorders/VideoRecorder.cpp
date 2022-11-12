@@ -1,4 +1,3 @@
-#include "pch-il2cpp.h"
 #include "VideoRecorder.h"
 
 struct ImageData {
@@ -23,7 +22,7 @@ void AsyncWriter(PolyM::Queue& q)
         
         if (q.getQSize() == 0)
         {
-            LOG_DEBUG("Frames wrote to files.");
+            printf("Frames wrote to files.\n");
         }
     }
 }
@@ -53,7 +52,7 @@ void VideoRecorder::Record(int64_t timeStamp)
 
     this->m_screenshot = Screenshot();
 
-    Mat src = this->m_screenshot.getScreenshot(WindowRect.left + 3, WindowRect.top + titleBarHeight + 2, app::Screen_get_width(nullptr), app::Screen_get_height(nullptr));
+    Mat src = this->m_screenshot.getScreenshot(WindowRect.left + 3, WindowRect.top + titleBarHeight + 2, GameFunctions::GetInstance().Screen_get_width(nullptr), GameFunctions::GetInstance().Screen_get_height(nullptr));
 
     ////Sync save
     //this->m_timestamp_to_video_frame_map.emplace(std::to_string(timeStamp), src);
@@ -67,7 +66,7 @@ void VideoRecorder::Record(int64_t timeStamp)
 void VideoRecorder::Write()
 {
     //save video frame data
-    std::string screenshotsDirectory = (util::GetCurrentPath() / "ScreenShots").string();
+    std::string screenshotsDirectory = (ProcessHelper::GetCurrentPath() / "ScreenShots").string();
     int counter = 1;
     for (auto [k, v] : this->m_timestamp_to_video_frame_map) {
         //auto startTime = util::GetCurrentTimeMillisec();
@@ -85,7 +84,7 @@ void VideoRecorder::Write()
         counter++;
     }
     this->m_timestamp_to_video_frame_map.clear();
-    LOG_DEBUG("Frames wrote to files.");
+    printf("Frames wrote to files.\n");
 }
 
 void VideoRecorder::SetCurrentSCFolderPath(std::string path)

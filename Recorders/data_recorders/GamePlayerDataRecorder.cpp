@@ -1,13 +1,12 @@
-#include "pch-il2cpp.h"
 #include "GamePlayerDataRecorder.h"
-
 
 nlohmann::json GamePlayerDataRecorder::Record(nlohmann::json record)
 {
-	auto avatarPosition = app::ActorUtils_GetAvatarPos(nullptr);
-	auto mainCam = app::GameObject_Find(string_to_il2cppi("/EntityRoot/MainCamera(Clone)"), nullptr);
-	auto mainCamTransform = app::GameObject_get_transform(mainCam, nullptr);
-	auto t_eulerAngles = app::Transform_get_eulerAngles(mainCamTransform, nullptr);
+	auto avatarPosition = GameFunctions::GetInstance().ActorUtils_GetAvatarPos(nullptr);
+	auto mainCam = GameFunctions::GetInstance().GameObject_Find(
+		GameFunctions::GetInstance().string_to_il2cppi("/EntityRoot/MainCamera(Clone)"), nullptr);
+	auto mainCamTransform = GameFunctions::GetInstance().GameObject_get_transform(mainCam, nullptr);
+	auto t_eulerAngles = GameFunctions::GetInstance().Transform_get_eulerAngles(mainCamTransform, nullptr);
 	auto pitch = t_eulerAngles.x;
 	auto yaw = t_eulerAngles.y;
 	auto roll = t_eulerAngles.z;

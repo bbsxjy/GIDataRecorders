@@ -1,6 +1,4 @@
-#include "pch-il2cpp.h"
 #include "RecorderMain.h"
-#include <helpers.h>
 
 auto maxX = -999999.f;
 auto minX = -999999.f;
@@ -17,7 +15,18 @@ void RecorderMain::Init()
 	this->m_ior = new IORecorder;
 	this->m_vr = new VideoRecorder;
 	this->m_vr->Initialize();
-	LOG_DEBUG("Recorders instance initiated.");
+	printf("Recorders instance initiated.\n");
+}
+
+bool IsInGame()
+{
+	auto avatarPosition = GameFunctions::GetInstance().ActorUtils_GetAvatarPos(nullptr);
+
+	if (avatarPosition.x != 0.0f)
+	{
+		return true;
+	}
+	return false;
 }
 
 void RecorderMain::Run()
@@ -36,10 +45,10 @@ void RecorderMain::Run()
 			milliseconds ms = duration_cast<milliseconds>(
 				system_clock::now().time_since_epoch()
 				);
-			std::string screenshotsDirectory = (util::GetCurrentPath() / "ScreenShots").string() + "/" + std::to_string(ms.count());
+			std::string screenshotsDirectory = (ProcessHelper::GetCurrentPath() / "ScreenShots").string() + "/" + std::to_string(ms.count());
 			CreateDirectory(screenshotsDirectory.c_str(), nullptr);
 			this->m_vr->SetCurrentSCFolderPath(screenshotsDirectory);
-			LOG_DEBUG("Recording.");
+			printf("Recording at path %s.\n", screenshotsDirectory);
 		}
 
 		//setup continue shortcuts - F8
@@ -50,16 +59,14 @@ void RecorderMain::Run()
 			//sync save frames
 			//this->m_vr->Write();
 		}
-
+		
 		//on game update / each frame, check in game first.
-		auto entityManager = GET_SINGLETON(MoleMole_EntityManager);
-
-		if (entityManager != nullptr)
+		if (IsInGame())
 		{
-			auto dx = app::Input_GetAxis(string_to_il2cppi("Mouse X"), nullptr);
-			auto dy = app::Input_GetAxis(string_to_il2cppi("Mouse Y"), nullptr);
-			auto width = app::Screen_get_width(nullptr);
-			auto height = app::Screen_get_height(nullptr);
+			auto dx = GameFunctions::GetInstance().Input_GetAxis(GameFunctions::GetInstance().string_to_il2cppi("Mouse X"), nullptr);
+			auto dy = GameFunctions::GetInstance().Input_GetAxis(GameFunctions::GetInstance().string_to_il2cppi("Mouse Y"), nullptr);
+			auto width = GameFunctions::GetInstance().Screen_get_width(nullptr);
+			auto height = GameFunctions::GetInstance().Screen_get_height(nullptr);
 
 			if (!this->m_is_in_game && this->m_ior->m_psuedo_mouse.x != 0.0f && this->m_ior->m_psuedo_mouse.y != 0.0f)
 			{
@@ -102,7 +109,7 @@ void RecorderMain::Run()
 			Sleep(17);
 		}
 
-		if (entityManager == nullptr || this->m_is_interrupted)
+		if (!IsInGame() || this->m_is_interrupted)
 		{
 			continue;
 		}
@@ -118,7 +125,7 @@ void RecorderMain::Run()
 		record = this->m_gpdr->Record(record);
 
 		//add time stamp
-		auto currentTime = util::GetCurrentTimeMillisec();
+		auto currentTime = ProcessHelper::GetCurrentTimeMillisec();
 		record["time_stamp"] = currentTime;
 		
 		this->m_json_root["action_records"].push_back(record);

@@ -1,4 +1,4 @@
-#include "pch-il2cpp.h"
+#include "pch.h"
 #include "RecorderBase.h"
 
 void RecorderBase::Initialize()
@@ -27,7 +27,7 @@ void RecorderBase::InitLogConfigs()
 		);
 
 	//create json file if not there
-	std::string logsDirectory = (util::GetCurrentPath() / "Actions").string();
+	std::string logsDirectory = (ProcessHelper::GetCurrentPath() / "Actions").string();
 	this->m_currentFileName = logsDirectory + "/Action_" + std::to_string(ms.count()) + ".json";
 	CreateDirectory(logsDirectory.c_str(), nullptr);
 	m_json_root["action_records"] = {};
@@ -41,7 +41,7 @@ void RecorderBase::InitVideoConfigs()
 	milliseconds ms = duration_cast<milliseconds>(
 		system_clock::now().time_since_epoch()
 		);
-	std::string screenshotsDirectory = (util::GetCurrentPath() / "ScreenShots").string();
+	std::string screenshotsDirectory = (ProcessHelper::GetCurrentPath() / "ScreenShots").string();
 	CreateDirectory(screenshotsDirectory.c_str(), nullptr);
 	//LOG_DEBUG("Video recorder configs initialized.");
 }
@@ -62,7 +62,7 @@ void RecorderBase::Write(std::string jsonString)
 		this->m_logFileStream.flush();
 	}
 	this->Close();
-	LOG_DEBUG("Meta data wrote to file.");
+	printf("Meta data wrote to file.\n");
 }
 
 

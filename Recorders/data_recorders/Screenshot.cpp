@@ -1,5 +1,5 @@
-#include "pch-il2cpp.h"
 #include "Screenshot.h"
+
 using cv::Mat;
 Screenshot::Screenshot()
 {
