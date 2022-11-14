@@ -8,11 +8,11 @@ GameFunctions& GameFunctions::GetInstance()
 
 void GameFunctions::InitStaticOffsets()
 {
-    printf("Initing static offsets.\n");
+    //printf("Initing static offsets.\n");
     auto baseUAAddress = (uintptr_t)GetModuleHandleW(L"UserAssembly.dll");
-    printf("UserAssembly.dll Starts at %p.\n", (void*)baseUAAddress);
+    //printf("UserAssembly.dll Starts at %p.\n", (void*)baseUAAddress);
     auto baseUPAddress = (uintptr_t)GetModuleHandleW(L"UnityPlayer.dll");
-    printf("UnityPlayer.dll Starts at %p.\n", (void*)baseUPAddress);
+    //printf("UnityPlayer.dll Starts at %p.\n", (void*)baseUPAddress);
 
     Marshal_PtrToStringAnsi = (Marshal_PtrToStringAnsiType)(baseUAAddress + MARSHAL_PTRTOSTRINGANSI);
     Application_RecordUserData = (Application_RecordUserDataType)(baseUAAddress + APPLICATION_RECORDUSERDATA);

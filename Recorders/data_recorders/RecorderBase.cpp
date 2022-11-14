@@ -62,7 +62,7 @@ void RecorderBase::Write(std::string jsonString)
 		this->m_logFileStream.flush();
 	}
 	this->Close();
-	printf("Meta data wrote to file.\n");
+	printf("所有数据成功记录！\n");
 }
 
 

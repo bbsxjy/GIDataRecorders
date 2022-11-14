@@ -28,11 +28,11 @@ void Run(HMODULE phModule)
 
     while (GetModuleHandle("UserAssembly.dll") == nullptr)
     {
-        printf("UserAssembly.dll isn't initialized, waiting for 2 sec.\n");
+        printf("等待游戏初始化中....\r");
         Sleep(2000);
     }
 
-    printf("Waiting 10sec for game initialize.\n");
+    printf("游戏初始化完毕！等待游戏启动中，请稍后.....\n");
     Sleep(10000);
 
     GameFunctions::GetInstance().InitStaticOffsets();

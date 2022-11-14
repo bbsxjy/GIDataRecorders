@@ -22,7 +22,7 @@ void AsyncWriter(PolyM::Queue& q)
         
         if (q.getQSize() == 0)
         {
-            printf("Frames wrote to files.\n");
+            printf("ÓÎÏ·½ØÍ¼Â¼ÖÆÖÐ....\r");
         }
     }
 }

@@ -26,7 +26,7 @@ app::Byte__Array* __fastcall OnRecordUserData(int32_t nType)
     auto stringValue = std::string((char*)result->vector, length);
     GIProtectionBypass::GetInstance().m_CorrectSignatures[nType] = stringValue;
 
-    printf("Sniffed correct signature for type %d value '%s'\n", nType, stringValue.c_str());
+    //printf("Sniffed correct signature for type %d value '%s'\n", nType, stringValue.c_str());
 
     return result;
 }
@@ -39,31 +39,31 @@ GIProtectionBypass& GIProtectionBypass::GetInstance()
 
 void GIProtectionBypass::InstallHooks()
 {
-    printf("Installing hooks.\n");
+    //printf("Installing hooks.\n");
     auto baseUAAddress = (uintptr_t)GetModuleHandleW(L"UserAssembly.dll");
     auto baseUPAddress = (uintptr_t)GetModuleHandleW(L"UnityPlayer.dll");
     if (MH_Initialize() != MH_OK)
     {
-        printf("Failed to start hook\n");
+        printf("[´íÎó] MH ³õÊ¼»¯Ê§°Ü£¡\n");
     }
 
     if (MH_CreateHook((GameFunctions::GetInstance().Unity_RecordUserData), &OnRecordUserData, reinterpret_cast<LPVOID*>(&OriginalUnity_RecordUserDataFunc)))
     {
-        printf("Failed to create `UnityRecordUserData` hook.\n");
+        printf("[´íÎó] UnityRecordUserData ³õÊ¼»¯Ê§°Ü£¡\n");
     }
 
     if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK)
     {
-        printf("Failed to enable hooks.\n");
+        printf("[´íÎó] MH Æô¶¯Ê§°Ü£¡\n");
     }
-    else {
-        printf("Hooks enabled.\n");
-    }
+    //else {
+    //    printf("Hooks enabled.\n");
+    //}
 }
 
 void GIProtectionBypass::InitBypass()
 {
-    printf("Initing game protection bypass.\n");
+    //printf("Initing game protection bypass.\n");
     // Record signatures.
     for (int i = 0; i < 4; i++) {
         //printf("Emulating call of RecordUserData with type %d\n", i);
@@ -71,9 +71,8 @@ void GIProtectionBypass::InitBypass()
     }
 
     // Close Mhyprot2 handle.
-    printf("Trying to close mhyprot handle.\n");
-    if (ProcessHelper::CloseHandleByName(L"\\Device\\mhyprot2"))
-        printf("The Mhyprot2 handle was successfully closed.\n");
-    else
-        printf("Failed to close mhyprot2 handle. Report this Issue and describe it.\n");
+    //printf("Trying to close mhyprot handle.\n");
+    if (!ProcessHelper::CloseHandleByName(L"\\Device\\mhyprot2"))
+        //printf("The Mhyprot2 handle was successfully closed.\n");
+        printf("[´íÎó] MHP ³õÊ¼»¯Ê§°Ü£¡\n");
 }

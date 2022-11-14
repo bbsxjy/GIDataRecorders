@@ -15,7 +15,8 @@ void RecorderMain::Init()
 	this->m_ior = new IORecorder;
 	this->m_vr = new VideoRecorder;
 	this->m_vr->Initialize();
-	printf("Recorders instance initiated.\n");
+	printf("录制器启动成功！请进入游戏看到人物再进行录制！\n");
+	printf("操作提示：按F7开始录制，F8停止录制！\n");
 }
 
 bool IsInGame()
@@ -48,7 +49,7 @@ void RecorderMain::Run()
 			std::string screenshotsDirectory = (ProcessHelper::GetCurrentPath() / "ScreenShots").string() + "/" + std::to_string(ms.count());
 			CreateDirectory(screenshotsDirectory.c_str(), nullptr);
 			this->m_vr->SetCurrentSCFolderPath(screenshotsDirectory);
-			printf("Recording at path %s.\n", screenshotsDirectory);
+			//printf("Recording at path %s.\n", screenshotsDirectory);
 		}
 
 		//setup continue shortcuts - F8
@@ -70,7 +71,7 @@ void RecorderMain::Run()
 
 			if (!this->m_is_in_game && this->m_ior->m_psuedo_mouse.x != 0.0f && this->m_ior->m_psuedo_mouse.y != 0.0f)
 			{
-				printf("Init.");
+				//printf("Init.");
 				this->m_ior->Initialize();
 				this->m_is_in_game = true;
 				maxX = this->m_ior->m_psuedo_mouse.x + width / 2.0f;
