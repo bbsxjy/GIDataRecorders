@@ -112,10 +112,9 @@ void RecorderMain::Run()
 
 		if (!IsInGame() || this->m_is_interrupted)
 		{
+			Sleep(17);
 			continue;
 		}
-
-
 
 		//create json object
 		nlohmann::json record;
